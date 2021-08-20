@@ -16,6 +16,7 @@ function updateTotalField(totalFieldId, amount) {
   // console.log(depositTotalText);
 }
 
+//function for update balance
 function updateBalance(amount, isAdd) {
   const balanceTotal = document.getElementById("balance-total");
   const previousbalance = parseFloat(balanceTotal.innerText);
@@ -34,6 +35,7 @@ document
     // const depositAmountText = depositInput.value;
     // const depositAmount = parseFloat(depositAmountText);
     const depositAmount = getInputValue("deposit-input");
+    //validation if balance is less than
     if (depositAmount > 0) {
       updateTotalField("deposit-total", depositAmount);
       updateBalance(depositAmount, true);
