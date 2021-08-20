@@ -35,7 +35,7 @@ document
     // const depositAmountText = depositInput.value;
     // const depositAmount = parseFloat(depositAmountText);
     const depositAmount = getInputValue("deposit-input");
-    //validation if balance is less than
+    //validation if balance is less than zero
     if (depositAmount > 0) {
       updateTotalField("deposit-total", depositAmount);
       updateBalance(depositAmount, true);
