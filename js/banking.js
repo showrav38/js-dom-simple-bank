@@ -1,3 +1,4 @@
+// function for taking input from inputfield
 function getInputValue(inputId) {
   const inputField = document.getElementById(inputId);
   const inputAmountText = inputField.value;
