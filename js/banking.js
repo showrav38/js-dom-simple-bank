@@ -16,11 +16,16 @@ function updateTotalField(totalFieldId, amount) {
   // console.log(depositTotalText);
 }
 
+function getCurrentBalance() {
+  const balanceTotal = document.getElementById("balance-total");
+  const previousbalance = parseFloat(balanceTotal.innerText);
+  return previousbalance;
+}
 //function for update balance
 function updateBalance(amount, isAdd) {
   const balanceTotal = document.getElementById("balance-total");
-  const previousbalance = parseFloat(balanceTotal.innerText);
-  balanceTotal.innerText = previousbalance + amount;
+  const previousbalance = getCurrentBalance();
+  //   const previousbalance = parseFloat(balanceTotal.innerText);
   if (isAdd == true) {
     balanceTotal.innerText = previousbalance + amount;
   } else {
@@ -61,9 +66,14 @@ document
     // const withdrawAmountText = withdrawInput.value;
     // const withdrawAmount = parseFloat(withdrawAmountText);
     const withdrawAmount = getInputValue("withdraw-input");
-    if (withdrawAmount > 0) {
+    const currentBalance = getCurrentBalance();
+    if (withdrawAmount > 0 && withdrawAmount <= currentBalance) {
       updateTotalField("withdraw-total", withdrawAmount);
       updateBalance(withdrawAmount, false);
+    }
+
+    if(withdrawAmount > currentBalance){
+        console.log('error its not possible');
     }
 
     // get and update withdraw total
